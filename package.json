@@ -1,0 +1,15 @@
+{
+  "name": "amr-learning-tracker",
+  "version": "1.0.0",
+  "description": "Two-project AMR learning dashboard",
+  "scripts": {
+    "test": "node test.cjs"
+  },
+  "keywords": [],
+  "author": "",
+  "type": "commonjs",
+  "devDependencies": {
+    "jsdom": "26.1.0"
+  },
+  "private": true
+}
