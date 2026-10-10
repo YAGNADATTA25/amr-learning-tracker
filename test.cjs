@@ -5,7 +5,7 @@ const html=fs.readFileSync('index.html','utf8');
 const tick=()=>new Promise(r=>setTimeout(r,15));
 let checks=0;
 function check(condition,label){assert.ok(condition,label);checks++;console.log('PASS',label);}
-function make(client){const dom=new JSDOM(html,{url:'https://example.com/amr-learning-tracker/',runScripts:'outside-only'});const w=dom.window;w.scrollTo=()=>{};w.confirm=()=>true;w.HTMLDialogElement.prototype.showModal=function(){this.open=true;};w.HTMLDialogElement.prototype.close=function(){this.open=false;};if(client)w.supabase={createClient:()=>client};w.eval(fs.readFileSync('data.js','utf8'));w.eval(fs.readFileSync('app.js','utf8'));return dom;}
+function make(client){const dom=new JSDOM(html,{url:'https://example.com/amr-learning-tracker/',runScripts:'outside-only'});const w=dom.window;w.scrollTo=()=>{};w.confirm=()=>true;w.HTMLDialogElement.prototype.showModal=function(){this.open=true;};w.HTMLDialogElement.prototype.close=function(){this.open=false;};if(client)w.supabase={createClient:()=>client};w.eval(fs.readFileSync('data.js','utf8'));w.eval(fs.readFileSync('research.js','utf8'));w.eval(fs.readFileSync('app.js','utf8'));return dom;}
 async function submit(w){const form=w.document.querySelector('#edit-form');form.dispatchEvent(new w.SubmitEvent('submit',{bubbles:true,cancelable:true,submitter:form.querySelector('button[type=submit]')}));await tick();}
 const click=(w,q)=>{const e=w.document.querySelector(q);assert.ok(e,'Missing '+q);e.click();};
 const field=(w,n,v)=>w.document.querySelector(`[name="${n}"]`).value=v;
