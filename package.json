@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Two-project AMR learning dashboard",
   "scripts": {
-    "test": "node test.cjs",
+    "test": "node test.cjs && node preferences-test.cjs",
     "dev": "node dev.cjs"
   },
   "keywords": [],
